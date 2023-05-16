@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 raiz = Tk()
 raiz.title("Numeros y sus bases")
@@ -16,15 +17,23 @@ numbEntry.grid(row=1, column=1)
 
 
 def calcular_todos():
-    a = int(numbEntry.get())
-    binario = bin(a)[2:]
-    binLabelRta.config(text=binario)
+    try:
+        a = int(numbEntry.get())
+        binario = bin(a)[2:]
+        binLabelRta.config(text=binario)
 
-    hexadecimal = hex(a)[2:]
-    hexLabelRta.config(text=hexadecimal)
+        hexadecimal = hex(a)[2:]
+        hexLabelRta.config(text=hexadecimal)
 
-    octal = oct(a)[2:]
-    octLabelRta.config(text=octal)
+        octal = oct(a)[2:]
+        octLabelRta.config(text=octal)
+    except ValueError:
+        if (numbEntry.get()) == "":
+            pass
+        else:
+            messagebox.showerror("Alerta",
+                                 "Intente colocar un número entero")
+
 
 
 btn1 = Button(raiz, text="CALCULAR", command=calcular_todos,
