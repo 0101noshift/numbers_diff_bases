@@ -16,9 +16,6 @@ numbEntry.grid(row=1, column=1)
 
 
 def calcular_todos():
-    global binLabelRta
-    global hexLabelRta
-    global octLabelRta
     a = int(numbEntry.get())
     binario = bin(a)[2:]
     binLabelRta.config(text=binario)
