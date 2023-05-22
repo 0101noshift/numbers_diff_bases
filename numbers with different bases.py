@@ -3,7 +3,7 @@ from tkinter import messagebox
 
 raiz = Tk()
 raiz.title("Numeros y sus bases")
-raiz.geometry("600x180")
+raiz.geometry("500x130")
 raiz.configure(bg="#76b5a0")
 
 numbLabel = Label(raiz, text="COLOQUE UN NUMERO ENTERO: ",
@@ -30,6 +30,9 @@ def calcular_todos():
     except ValueError:
         if (numbEntry.get()) == "":
             pass
+        elif (numbEntry.get()) == " ":
+            messagebox.showerror("Alerta",
+                                 "Debe ingresar números enteros")
         else:
             messagebox.showerror("Alerta",
                                  "Intente colocar un número entero")
